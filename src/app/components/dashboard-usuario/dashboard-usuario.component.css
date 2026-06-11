@@ -1,0 +1,111 @@
+/* --- Estilo Base Seguro --- */
+.dashboard-layout {
+  padding: 20px;
+  background-color: #f4f7f9;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+/* --- Header: Aseguramos que los botones siempre se vean --- */
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+}
+
+/* Contenedor que agrupa los botones */
+.header-actions {
+  display: flex;
+  gap: 15px;
+}
+
+/* --- Botón Nueva Publicación: Alta visibilidad --- */
+.btn-create {
+  background-color: #0056b3; /* Azul fuerte */
+  color: white;
+  padding: 12px 25px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block; /* Asegura visibilidad */
+}
+
+/* --- Botón Cerrar Sesión --- */
+.btn-logout {
+  background-color: #dc3545; /* Rojo fuerte */
+  color: white;
+  padding: 12px 25px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* --- Asegurar que el contenido no se oculte --- */
+.main-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 800px) {
+  .main-content {
+    grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+  }
+}
+.form-edicion-card {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-edicion-card label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.form-edicion-card input,
+.form-edicion-card textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  box-sizing: border-box; /* Esto evita que los inputs se salgan del contenedor */
+}
+
+.acciones-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-save {
+  background-color: #38a169;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-cancel {
+  background-color: #718096;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}

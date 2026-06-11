@@ -1,0 +1,22 @@
+<div class="admin-container" style="padding: 20px; font-family: sans-serif;">
+  <header style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #54a3f7; padding-bottom: 10px;">
+    <h1>Panel de Administración</h1>
+    <button (click)="cerrarSesion()" style="background: #e74c3c; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+      Cerrar Sesión
+    </button>
+  </header>
+
+  <h2>Moderación de Contenidos</h2>
+
+  <div *ngFor="let p of pubService.todasLasPublicacionesAdmin()" 
+       style="border: 1px solid #ddd; padding: 15px; margin: 15px 0; border-radius: 8px; background: #f9f9f9;">
+    <h3>{{ p.titulo }}</h3>
+    <p><strong>Descripción:</strong> {{ p.descripcion }}</p>
+    <p><strong>Estado actual:</strong> <span style="color: #f39c12; font-weight: bold;">{{ p.estado }}</span></p>
+    
+    <div style="margin-top: 10px;">
+      <button (click)="resolver(p.id, 'aceptada')" style="background: #27ae60; color: white; border: none; padding: 8px 15px; margin-right: 10px; border-radius: 4px; cursor: pointer;">Aprobar</button>
+      <button (click)="resolver(p.id, 'rechazada')" style="background: #c0392b; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer;">Rechazar</button>
+    </div>
+  </div>
+</div>
