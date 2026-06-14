@@ -1,0 +1,118 @@
+/* Contenedor principal que ocupa toda la pantalla */
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); /* Degradado azul cielo/turismo */
+  padding: 20px;
+}
+
+/* Tarjeta del formulario */
+.register-card {
+  background: white;
+  width: 100%;
+  max-width: 450px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Encabezado */
+.register-card h2 {
+  color: #2c3e50;
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.register-card p {
+  color: #7f8c8d;
+  margin-bottom: 30px;
+}
+
+/* Grupos de formulario */
+.form-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  color: #34495e;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: #4facfe;
+  outline: none;
+  box-shadow: 0 0 8px rgba(79, 172, 254, 0.2);
+}
+
+/* Botón de registro */
+.btn-register {
+  width: 100%;
+  padding: 14px;
+  background: #4facfe;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+  margin-top: 10px;
+}
+
+.btn-register:hover {
+  background: #3894e4;
+  transform: translateY(-2px);
+}
+
+.btn-register:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Mensajes de feedback (Banners) */
+.banner {
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.error { background: #fee2e2; color: #b91c1c; border: 1px solid #f87171; }
+.success { background: #dcfce7; color: #15803d; border: 1px solid #4ade80; }
+
+/* Texto al pie */
+.footer-text {
+  margin-top: 25px;
+  font-size: 14px;
+  color: #666;
+}
+
+.footer-text a {
+  color: #4facfe;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.footer-text a:hover {
+  text-decoration: underline;
+}

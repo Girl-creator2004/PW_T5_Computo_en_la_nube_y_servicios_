@@ -1,0 +1,111 @@
+/* --- Contenedor Global --- */
+.crear-publicacion-layout {
+  padding: 40px 20px;
+  background-color: #eef2f5;
+  min-height: 100vh;
+}
+
+.form-container {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid #edf2f7;
+}
+
+/* --- Títulos --- */
+h2 { 
+  color: #003366; /* Azul Marino */
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 2rem;
+  margin-bottom: 8px;
+  border-left: 5px solid #38a169; /* Verde */
+  padding-left: 15px;
+}
+
+.nota { 
+  color: #718096; 
+  font-size: 0.95rem; 
+  margin-bottom: 30px; 
+}
+
+/* --- Grupos de entrada --- */
+.input-group { margin-bottom: 25px; }
+.input-group label { 
+  display: block; 
+  font-weight: 600; 
+  margin-bottom: 10px; 
+  color: #4a5568; 
+}
+
+.input-group input, 
+.input-group textarea {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #edf2f7;
+  border-radius: 10px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus, 
+.input-group textarea:focus {
+  outline: none;
+  border-color: #38a169;
+  background-color: #f7fffb;
+}
+
+/* --- Previsualización de Imágenes --- */
+.preview-imagenes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.img-thumbnail {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid #e2e8f0;
+  transition: transform 0.2s;
+}
+
+.img-thumbnail:hover { transform: scale(1.05); }
+
+/* --- Botones --- */
+.form-buttons { display: flex; gap: 15px; margin-top: 40px; }
+
+button { 
+  padding: 14px 24px; 
+  border-radius: 10px; 
+  border: none; 
+  font-weight: 700; 
+  cursor: pointer; 
+  transition: all 0.2s; 
+}
+
+.btn-publicar { background: #003366; color: white; flex: 2; }
+.btn-publicar:hover { background: #004a94; }
+
+.btn-cancelar { background: #edf2f7; color: #4a5568; flex: 1; }
+.btn-cancelar:hover { background: #e2e8f0; }
+
+/* --- Modal Estilo Profesional --- */
+.modal-confirmacion {
+  background: #f0f9ff;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid #bae6fd;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.modal-buttons { display: flex; gap: 15px; justify-content: center; margin-top: 20px; }
+.btn-si { background: #38a169; color: white; }
+.btn-no { background: #e53e3e; color: white; }

@@ -1,0 +1,134 @@
+<div
+  class="login-container"
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #2cb1f5;
+    font-family: 'Segoe UI', sans-serif;
+  "
+>
+  <div
+    class="card"
+    style="
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 450px;
+      text-align: center;
+    "
+  >
+    <h2 style="color: #2c3e50; margin-bottom: 5px; font-size: 28px; font-weight: 600">
+      Iniciar Sesión
+    </h2>
+    <p style="color: #7f8c8d; margin-bottom: 25px; font-size: 14px">
+      Qué bueno verte de regreso en Turismo Comalapa
+    </p>
+
+    @if (errorMessage) {
+      <div
+        style="
+          color: #721c24;
+          background-color: #f8d7da;
+          border: 1px solid #f5c6cb;
+          padding: 12px;
+          margin-bottom: 20px;
+          border-radius: 8px;
+          text-align: center;
+          font-size: 14px;
+        "
+      >
+        {{ errorMessage }}
+      </div>
+    }
+
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="onLogin()"
+      style="display: flex; flex-direction: column; gap: 15px; text-align: left"
+    >
+      <div>
+        <label
+          style="
+            display: block;
+            color: #2c3e50;
+            font-size: 14px;
+            margin-bottom: 5px;
+            font-weight: 500;
+          "
+          >Correo Electrónico</label
+        >
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="ejemplo@outlook.com"
+          style="
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background-color: #f8fafc;
+            font-size: 14px;
+            box-sizing: border-box;
+          "
+        />
+      </div>
+
+      <div>
+        <label
+          style="
+            display: block;
+            color: #2c3e50;
+            font-size: 14px;
+            margin-bottom: 5px;
+            font-weight: 500;
+          "
+          >Contraseña</label
+        >
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Ingresa tu contraseña"
+          style="
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background-color: #f8fafc;
+            font-size: 14px;
+            box-sizing: border-box;
+          "
+        />
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="loading"
+        style="
+          width: 100%;
+          padding: 14px;
+          border: none;
+          border-radius: 8px;
+          background-color: #54a3f7;
+          color: white;
+          font-size: 16px;
+          font-weight: bold;
+          cursor: pointer;
+          margin-top: 10px;
+        "
+      >
+        {{ loading ? 'Cargando...' : 'Ingresar' }}
+      </button>
+    </form>
+
+    <p style="margin-top: 20px; font-size: 14px; color: #7f8c8d">
+      ¿Aún no tienes una cuenta?
+      <a routerLink="/registro" style="color: #54a3f7; text-decoration: none; font-weight: 500"
+        >Regístrate aquí</a
+      >
+    </p>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+<div class="dashboard-layout">
+  <header class="dash-header">
+    <h1>Turismo Comalapa - Panel de Usuario</h1>
+    <div class="header-actions">
+      <button class="btn-create" routerLink="/nueva-publicacion">+ Nueva Publicación</button>
+      <button class="btn-logout" (click)="cerrarSesion()">Cerrar Sesión</button>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <section class="feed-section">
+      <h2>Publicaciones de la Comunidad</h2>
+
+      @for (pub of pubService.publicacionesPublicas(); track pub.id) {
+        <div class="card-publicacion">
+          <h3>{{ pub.titulo }}</h3>
+          <p class="autor">Por: {{ pub.perfil?.nombre }} {{ pub.perfil?.apellido_paterno }}</p>
+          <p class="ubicacion">📍 {{ pub.direccion }}</p>
+          <p>{{ pub.descripcion }}</p>
+
+          <div class="galeria">
+            @for (img of pub.imagenes; track img) {
+              <!-- Imagen clickeable para vista previa -->
+              <img [src]="img" alt="Imagen del destino" (click)="abrirVistaPrevia(img)" />
+            }
+          </div>
+        </div>
+      } @empty {
+        <p>No hay publicaciones aprobadas todavía. ¡Sé el primero!</p>
+      }
+    </section>
+
+    <section class="mis-posts-section">
+      <h2>Mis Publicaciones</h2>
+
+      @for (miPub of pubService.misPublicaciones(); track miPub.id) {
+        <div class="mi-card-status">
+          <h4>{{ miPub.titulo }}</h4>
+
+          @if (miPub.estado === 'pendiente') {
+            <span class="badge pendiente">⏳ Pendiente de revisión</span>
+            <div class="acciones">
+              <button class="btn-edit" (click)="activarEdicion(miPub)">Editar Datos</button>
+            </div>
+          }
+          @if (miPub.estado === 'aceptada') {
+            <span class="badge aceptada">✅ Publicada</span>
+            <div class="acciones">
+              <button class="btn-delete" (click)="eliminar(miPub.id!)">Eliminar</button>
+            </div>
+          }
+
+          @if (idPublicacionEnEdicion() === miPub.id) {
+            <div class="form-edicion-card">
+              <label>Título del lugar:</label>
+              <input type="text" [value]="miPub.titulo" #editTitulo />
+
+              <label>Dirección:</label>
+              <input type="text" [value]="miPub.direccion" #editDireccion />
+
+              <label>Descripción:</label>
+              <textarea #editDesc>{{ miPub.descripcion }}</textarea>
+
+              <div class="acciones-form">
+                <button
+                  class="btn-save"
+                  (click)="guardarCambios(miPub.id!, editTitulo.value, editDireccion.value, editDesc.value)"
+                >
+                  Guardar cambios
+                </button>
+                <button class="btn-cancel" (click)="idPublicacionEnEdicion.set(null)">
+                  Cancelar
+                </button>
+              </div>
+            </div>
+          }
+        </div>
+      } @empty {
+        <p>No has subido ninguna propuesta aún.</p>
+      }
+    </section>
+  </div>
+
+  <!-- Modal de Vista Previa -->
+  @if (imagenSeleccionada) {
+    <div class="modal-overlay" (click)="cerrarVistaPrevia()">
+      <div class="modal-content">
+        <img [src]="imagenSeleccionada" alt="Vista previa">
+        <button class="btn-close" (click)="cerrarVistaPrevia()">X</button>
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,49 @@
+<div class="form-container">
+  <h2>Crear Nueva Publicación</h2>
+  <p class="nota">Tu publicación será valorada por seguridad antes de mostrarse públicamente.</p>
+
+  <form [formGroup]="pubForm" (ngSubmit)="intentarPublicar()">
+    <div class="input-group">
+      <label>Título del Lugar</label>
+      <input type="text" formControlName="titulo" placeholder="Ej. Cascadas de Comalapa">
+    </div>
+
+    <div class="input-group">
+      <label>Dirección</label>
+      <input type="text" formControlName="direccion" placeholder="Ej. Barrio Centro, Comalapa">
+    </div>
+
+    <div class="input-group">
+      <label>Descripción</label>
+      <textarea formControlName="descripcion" rows="4" placeholder="Describe los atractivos, costos, etc."></textarea>
+    </div>
+
+    <div class="input-group">
+      <label>Subir Imágenes (Múltiples)</label>
+      <input type="file" (change)="onFileSelected($event)" multiple accept="image/*">
+    </div>
+
+    <div class="preview-imagenes">
+      @for (img of imagenesCargadas(); track img) {
+        <img [src]="img" class="img-thumbnail" alt="Previsualización">
+      }
+    </div>
+
+    @if (mostrarModalConfirmacion()) {
+      <div class="modal-confirmacion">
+        <p><strong>¿Seguro de realizar la publicación?</strong></p>
+        <div class="modal-buttons">
+          <button type="button" class="btn-si" (click)="confirmarYSubir()">Sí</button>
+          <button type="button" class="btn-no" (click)="mostrarModalConfirmacion.set(false)">No, regresar</button>
+        </div>
+      </div>
+    }
+
+    <div class="form-buttons">
+      <button type="submit" [disabled]="pubForm.invalid || mostrarModalConfirmacion()" class="btn-publicar">
+        Publicar
+      </button>
+      <button type="button" routerLink="/dashboard" class="btn-cancelar">Cancelar</button>
+    </div>
+  </form>
+</div>

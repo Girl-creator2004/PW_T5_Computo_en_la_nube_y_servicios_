@@ -1,0 +1,71 @@
+<div
+  class="registro-container"
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #2cb1f5;
+    font-family: 'Segoe UI', sans-serif;
+  "
+>
+  <div
+    class="card"
+    style="
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 450px;
+      text-align: center;
+    "
+  >
+    <h2 style="color: #2c3e50; margin-bottom: 25px">Crear Cuenta</h2>
+
+    <form
+      [formGroup]="registroForm"
+      (ngSubmit)="onRegistro()"
+      style="display: flex; flex-direction: column; gap: 15px; text-align: left"
+    >
+      <div>
+        <label>Correo Electrónico</label>
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="tu@correo.com"
+          style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px"
+        />
+      </div>
+
+      <div>
+        <label>Contraseña</label>
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Mínimo 6 caracteres"
+          style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px"
+        />
+      </div>
+
+      <button
+        type="submit"
+        style="
+          width: 100%;
+          padding: 14px;
+          border: none;
+          border-radius: 8px;
+          background-color: #54a3f7;
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+        "
+      >
+        Registrarse
+      </button>
+    </form>
+
+    <p style="margin-top: 20px">
+      ¿Ya tienes cuenta? <a routerLink="/login" style="color: #54a3f7">Inicia sesión</a>
+    </p>
+  </div>
+</div>
